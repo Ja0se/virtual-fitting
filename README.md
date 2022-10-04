@@ -1,7 +1,12 @@
 # virtual-fitting
 
+u2net
 clone https://github.com/levindabhi/cloth-segmentation.git
 
+unet
+clone 
+https://github.com/ternaus/cloths_segmentation
+https://github.com/ternaus/people_segmentation
 
 ### colab
 
