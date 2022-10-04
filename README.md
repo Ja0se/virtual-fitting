@@ -1,12 +1,22 @@
 # virtual-fitting
 
-u2net
-clone https://github.com/levindabhi/cloth-segmentation.git
+## u2net
 
-unet
-clone 
+git clone
+
+https://github.com/levindabhi/cloth-segmentation.git
+
+## unet
+
+git clone 
+
 https://github.com/ternaus/cloths_segmentation
+
 https://github.com/ternaus/people_segmentation
+
+## OpenPose
+
+## K-means clustering
 
 ### colab
 
