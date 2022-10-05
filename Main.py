@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import Divide
+import copy
+import cv2
+
 def imgshow(img):
     plt.figure()
     plt.imshow(img)
@@ -13,9 +16,8 @@ def imgshow(img):
 if __name__== '__main__':
     net = infer.U2net()
     Ext=Extract_Color.Extract()
-    img_path='./input_images/1234.jpg'
+    img_path='./input_images/11.jpg'
     img=Image.open(img_path).convert('RGB')
-
     '''
     Extract Color using unet c_model
     '''
@@ -36,12 +38,15 @@ if __name__== '__main__':
     #imgshow(u2net_mask)
     
     
-    Div=Divide.Div(u2net_mask)
+    Div=Divide.Div(u2net_mask,img)
     x,y,w,h,Div_image=Div.Red()
     print(x,y,w,h)
     #print(Div_image)
     if(Div_image is not 0):
         Div_image=Div_image[x:w,y:h]
         imgshow(Div_image)
-    
-    
+        
+    Ext.fit(Div_image)
+    ExtractImg,perc,k_cluster=Ext.palette_perc()
+    imgshow(ExtractImg)
+    print(perc,k_cluster)
