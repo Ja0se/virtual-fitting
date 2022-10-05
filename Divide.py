@@ -1,11 +1,12 @@
 import copy
+import numpy as np
 # net=infer.U2net()
 # img=Image.open('./input_images/1234.jpg').convert('RGB')
 # img=net.Output(img)
 
 class Div:
   def __init__(self,img):
-    self.img=img
+    self.img=np.array(img)
     self.Width=img.width
     self.Height=img.height
   def Red(self):
@@ -13,14 +14,14 @@ class Div:
     image=copy.deepcopy(self.img)
     x,y,w,h=self.Width,self.Height,0,0
     flag=False
-    for i in range(self.Width):
-      for j in range(self.Height):
-        if self.img[i][j][0] is 128 and self.img[i][j][1] is 0 and self.img[i][j][2] is 0:
+    for j in range(self.Width):
+      for i in range(self.Height):
+        if image[i][j][0] == 128 and image[i][j][1] == 0 and image[i][j][2] == 0:
           x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
           flag=True
         else:
           image[i][j][0],image[i][j][1],image[i][j][2]=0,0,0
-    if flag is True:
+    if flag == True:
       return x,y,w,h,image
     else:
       return 0,0,0,0,0
@@ -28,14 +29,14 @@ class Div:
     image=copy.deepcopy(self.img)
     x,y,w,h=self.Width,self.Height,0,0
     flag=False
-    for i in range(self.Width):
-      for j in range(self.Height):
-        if self.img[i][j][0] is 0 and self.img[i][j][1] is 128 and self.img[i][j][2] is 0:
+    for j in range(self.Width):
+      for i in range(self.Height):
+        if image[i][j][0] == 0 and image[i][j][1] == 128 and image[i][j][2] == 0:
           x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
           flag=True
         else:
           image[i][j][0],image[i][j][1],image[i][j][2]=0,0,0
-    if flag is True:
+    if flag == True:
       return x,y,w,h,image
     else:
       return 0,0,0,0,0
@@ -43,14 +44,14 @@ class Div:
     image=copy.deepcopy(self.img)
     x,y,w,h=self.Width,self.Height,0,0
     flag=False
-    for i in range(self.Width):
-      for j in range(self.Height):
-        if self.img[i][j][0] is 128 and self.img[i][j][1] is 128 and self.img[i][j][2] is 0:
+    for j in range(self.Width):
+      for i in range(self.Height):
+        if image[i][j][0] == 128 and image[i][j][1] == 128 and image[i][j][2] == 0:
           x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
           flag=True
         else:
           image[i][j][0],image[i][j][1],image[i][j][2]=0,0,0
-    if flag is True:
+    if flag == True:
       return x,y,w,h,image
     else:
       return 0,0,0,0,0
