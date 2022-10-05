@@ -5,7 +5,8 @@ import numpy as np
 # img=net.Output(img)
 
 class Div:
-  def __init__(self,img):
+  def __init__(self,img,normal):
+    self.normal=np.array(normal)
     self.img=np.array(img)
     self.Width=img.width
     self.Height=img.height
@@ -18,6 +19,7 @@ class Div:
       for i in range(self.Height):
         if image[i][j][0] == 128 and image[i][j][1] == 0 and image[i][j][2] == 0:
           x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
+          image[i][j][0],image[i][j][1],image[i][j][2]=self.normal[i][j][0],self.normal[i][j][1],self.normal[i][j][2]
           flag=True
         else:
           image[i][j][0],image[i][j][1],image[i][j][2]=0,0,0
@@ -33,6 +35,7 @@ class Div:
       for i in range(self.Height):
         if image[i][j][0] == 0 and image[i][j][1] == 128 and image[i][j][2] == 0:
           x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
+          image[i][j][0],image[i][j][1],image[i][j][2]=self.normal[i][j][0],self.normal[i][j][1],self.normal[i][j][2]
           flag=True
         else:
           image[i][j][0],image[i][j][1],image[i][j][2]=0,0,0
@@ -48,6 +51,7 @@ class Div:
       for i in range(self.Height):
         if image[i][j][0] == 128 and image[i][j][1] == 128 and image[i][j][2] == 0:
           x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
+          image[i][j][0],image[i][j][1],image[i][j][2]=self.normal[i][j][0],self.normal[i][j][1],self.normal[i][j][2]
           flag=True
         else:
           image[i][j][0],image[i][j][1],image[i][j][2]=0,0,0
