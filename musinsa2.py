@@ -36,7 +36,7 @@ totalPage = re.findall('\d+', totalPage)
 totalPage = int(''.join(totalPage))
 
 totalImg = []
-
+cnt=0
 for item in range(totalPage//10-1):
     pageBox = driver.find_elements(By.CSS_SELECTOR, '.pagination > div > a')
     for idx in range(2, 12):
@@ -56,11 +56,11 @@ for item in range(totalPage//10-1):
             '''
             u2net_mask=net.Output(img)
             u2net_mask=u2net_mask.convert('RGB')
-            Up,Bottom,Outer=-1,-1,-1
+            Up,Bottom,Dress=-1,-1,-1
             
-            plt.figure()
-            plt.imshow(u2net_mask)
-            plt.show()
+            # plt.figure()
+            # plt.imshow(u2net_mask)
+            # plt.show()
             
             Div=Divide.Div(u2net_mask,img)
             #상의 추출
@@ -95,7 +95,7 @@ for item in range(totalPage//10-1):
                 #print(k_cluster.cluster_centers_[mask_color])
                 Bottom=Color.Colorfull(k_cluster.cluster_centers_[mask_color])
             
-            #외투 추출
+            #Dress 추출
             x,y,w,h,Div_image=Div.Yellow()
             #print(Div_image)
             if(Div_image is not 0):
@@ -109,10 +109,11 @@ for item in range(totalPage//10-1):
                     mask_color=1
                 #print(perc[mask_color])
                 #print(k_cluster.cluster_centers_[mask_color])
-                Outer=Color.Colorfull(k_cluster.cluster_centers_[mask_color])
+                Dress=Color.Colorfull(k_cluster.cluster_centers_[mask_color])
             
-            rw.Add(Up,Bottom,Outer)
-            print(Up,Bottom,Outer)
+            rw.Add(Up,Bottom,Dress)
+            cnt+=1
+            print('now count : ',count)
             '''
             test 끝
             '''
