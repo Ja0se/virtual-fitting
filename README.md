@@ -1,5 +1,8 @@
 # virtual-fitting
 
+We found Up, Bottom, Dress
+If you read code you can find Outer is Dress
+
 ## u2net
 
 git clone
