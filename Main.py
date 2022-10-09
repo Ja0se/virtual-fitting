@@ -14,10 +14,10 @@ def imgshow(img):
     plt.show()
     
 if __name__== '__main__':
-    Up,Bottom,Outer=-1,-1,-1
+    Up,Bottom,Dress=-1,-1,-1
     net = infer.U2net()
     Ext=Extract_Color.Extract()
-    img_path='./input_images/1234.jpg'
+    img_path='./input_images/1416.jpg'
     img=Image.open(img_path).convert('RGB')
     '''
     Extract Color using unet c_model
@@ -34,7 +34,7 @@ if __name__== '__main__':
     '''
     u2net_mask=net.Output(img)
     u2net_mask=u2net_mask.convert('RGB')
-    
+    imgshow(u2net_mask)
     Div=Divide.Div(u2net_mask,img)
     #상의 추출
     x,y,w,h,Div_image=Div.Red()
@@ -70,7 +70,7 @@ if __name__== '__main__':
         #print(k_cluster.cluster_centers_[mask_color])
         Bottom=Color.Colorfull(k_cluster.cluster_centers_[mask_color])
     
-    #외투 추출
+    #dress 추출
     x,y,w,h,Div_image=Div.Yellow()
     print(x,y,w,h)
     #print(Div_image)
@@ -85,6 +85,6 @@ if __name__== '__main__':
             mask_color=1
         #print(perc[mask_color])
         #print(k_cluster.cluster_centers_[mask_color])
-        Outer=Color.Colorfull(k_cluster.cluster_centers_[mask_color])
+        Dress=Color.Colorfull(k_cluster.cluster_centers_[mask_color])
         
-    print(Up,Bottom,Outer)
+    print(Up,Bottom,Dress)
