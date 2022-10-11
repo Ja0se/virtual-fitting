@@ -27,7 +27,7 @@ net = infer.U2net()
 Ext=Extract_Color.Extract()
 Ext.Clt(2)
 
-url = 'https://www.musinsa.com/mz/streetsnap'
+url = 'https://www.musinsa.com/mz/brandsnap'
 # s = Service('./chromedriver.exe')
 driver = webdriver.Chrome(executable_path='./chromedriver.exe')
 driver.get(url)

@@ -25,9 +25,5 @@ def Add(Up,Bottom,Dress):
     
 
 if __name__=='__main__':
-    x=[[0]*17 for i in range(17)]
-    Add(-1,-1,0)
-    # x=pd.DataFrame(x)
-    # x.to_csv('./csv/up_bottom.csv',index=False)
-    # x.to_csv('./csv/up_outer.csv',index=False)
-    # x.to_csv('./csv/bottom_outer.csv',index=False)
+    df=pd.read_csv('./csv/up_bottom.csv')
+    print(df['9'])

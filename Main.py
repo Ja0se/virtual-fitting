@@ -85,6 +85,7 @@ if __name__== '__main__':
             mask_color=1
         #print(perc[mask_color])
         #print(k_cluster.cluster_centers_[mask_color])
+        imgshow(Div_image)
         Dress=Color.Colorfull(k_cluster.cluster_centers_[mask_color])
         
     print(Up,Bottom,Dress)
