@@ -4,6 +4,8 @@ We found Up, Bottom, Dress
 
 If you read code you can find Outer is Dress
 
+If you want using code, you need to decompress zip file in trained_checkpoint folder
+
 ## u2net
 
 git clone
