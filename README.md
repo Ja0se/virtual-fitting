@@ -20,11 +20,13 @@ https://github.com/ternaus/cloths_segmentation
 
 https://github.com/ternaus/people_segmentation
 
+Make_Image.py
+
 ## OpenPose
 
 ## K-means clustering
 
-Extract_color.py
+Extract_Color.py
 
 ### colab
 
