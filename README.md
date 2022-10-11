@@ -12,6 +12,8 @@ git clone
 
 https://github.com/levindabhi/cloth-segmentation.git
 
+We change infer.py
+
 ## unet
 
 git clone 
