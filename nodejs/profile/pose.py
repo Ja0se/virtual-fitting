@@ -1,4 +1,5 @@
 import cv2
+import matplotlib.pyplot as plt
 class openpose:
     def __init__(self,image):        
         # 관절 번호: 머리는 0, 목은 1 등등
@@ -17,6 +18,7 @@ class openpose:
         self.protoFile = "pose_deploy_linevec_faster_4_stages.prototxt"
         self.weightsFile = "pose_iter_160000.caffemodel"
         self.net = cv2.dnn.readNetFromCaffe(self.protoFile, self.weightsFile)
+        #self.image=cv2.cvtColor(image,cv2.COLOR_BGR2RGB)
         self.image=image
         
         # 테스트 이미지에서 height, width, color 정보 파악
@@ -57,6 +59,8 @@ class openpose:
                 points.append((int(x), int(y)))
             else:
                 points.append(None)
+        # plt.imshow(self.image)
+        # plt.show()
         return points
         # return self.image
         # cv2.imshow("Output-Keypoints", self.image)

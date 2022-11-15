@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from profile import MI2
 
 def testFunc():
-    f = open("./test.txt","r")
+    f = open("./profile.txt","r")
     read_data=f.read()
     f.close()
     #decode
@@ -24,6 +24,9 @@ def testFunc():
     jpg_img = cv2.imencode('.jpg', masked)
     b64_string = base64.b64encode(jpg_img[1]).decode('utf-8')
     d= open("./profile.txt","w")
+    d.write(str(b64_string))
+    d.close()
+    d= open("./fit.txt","w")
     d.write(str(b64_string))
     d.close()
     return unet.point()

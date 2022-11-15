@@ -49,7 +49,7 @@ class MI2:
 
     masked=cv2.bitwise_and(self.image,cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB) * 255)
     
-    neck=int((self.points[1][1]+self.points[2][1])/2.)
+    neck=int(self.points[1][1]+((self.points[2][1]-self.points[1][1])/5.))
     Width=len(masked)
     Height=int((masked.size/len(masked))/3.)
     x,y,w,h=Width,Height,0,0
@@ -57,14 +57,15 @@ class MI2:
       for i in range(neck,self.points[8][1]):
         if masked[i][j][0] != 0 or masked[i][j][1] != 0 or masked[i][j][2] != 0:
           x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
-    upwidth=w-x
-    for j in range(Width):
-      for i in range(self.points[8][1],self.points[10][1]):
-        if masked[i][j][0] != 0 or masked[i][j][1] != 0 or masked[i][j][2] != 0:
-          x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
-    bottomwidth=w-x
-    pelvis = int((self.points[8][1]+self.points[14][1])/2.)
-    return neck,self.points[1][0],upwidth,pelvis,self.points[14][0],bottomwidth
+    upwidth=w-x+5
+    # x,y,w,h=Width,Height,0,0
+    # for j in range(Width):
+    #   for i in range(self.points[8][1],self.points[13][1]):
+    #     if masked[i][j][0] != 0 or masked[i][j][1] != 0 or masked[i][j][2] != 0:
+    #       x,y,w,h=min(i,x),min(j,y),max(i,w),max(j,h)
+    # bottomwidth=w-x+5
+    bottomwidth=upwidth-70
+    return neck,self.points[1][0]+4,upwidth,max(self.points[8][1],self.points[11][1])+20,self.points[14][0]+4,bottomwidth,self.points[13][1]
   
   
 if __name__ == "__main__":

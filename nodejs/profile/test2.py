@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from Make_Image import MI
 
 def testFunc():    
-    img = Image.open('./input_images/13.jpg')
+    img = Image.open('./nodejs/14.jpg')
     img= cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
     #encode
     unet=MI(img)
@@ -16,7 +16,7 @@ def testFunc():
     jpg_img = cv2.imencode('.jpg', img)
     b64_string = base64.b64encode(jpg_img[1]).decode('utf-8')
     
-    d= open("./up.txt","w")
+    d= open("./dress.txt","w")
     d.write(str(b64_string))
     d.close()
     # return 'hi'
