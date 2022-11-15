@@ -32,11 +32,9 @@ class MI:
     mask = unpad(mask, pads)
 
     masked=cv2.bitwise_and(self.image,cv2.cvtColor(mask, cv2.COLOR_GRAY2RGB) * 255)
-    
     # 사람 사이즈에 맞춰서 resize
     
-    Width=len(masked)
-    Height=int((masked.size/len(masked))/3.)
+    Height,Width,Color=masked.shape
     x,y,w,h=Width,Height,0,0
     for j in range(Width):
       for i in range(Height):
@@ -54,16 +52,16 @@ class MI:
     '''
     
 if __name__ == "__main__":
-  f = open("./test.txt","r")
-  read_data=f.read()
-  f.close()
-  #decode
-  img = Image.open(BytesIO(base64.b64decode(read_data)))
-  img= cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
-  plt.imshow(img)
-  plt.show()
+  # f = open("./test.txt","r")
+  # read_data=f.read()
+  # f.close()
+  # #decode
+  # img = Image.open(BytesIO(base64.b64decode(read_data)))
+  # img= cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
+  # plt.imshow(img)
+  # plt.show()
   
-  img=cv2.imread('./nodejs/12.jpg')
+  img=cv2.imread('./input_images/13.jpg')
   img=cv2.cvtColor(img,cv2.COLOR_BGR2RGB)
   plt.imshow(img)
   plt.show()
