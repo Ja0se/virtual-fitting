@@ -4,6 +4,8 @@ We found Up, Bottom, Dress
 
 If you want using code, you need to decompress zip file in trained_checkpoint folder
 
+and pip install -r requirements.txt
+
 ## u2net
 
 git clone
