@@ -32,7 +32,7 @@ def testFunc(pelvis,pelvisx,bottomwidth,bottom):
     
     
     x=int(pelvisx-int(bottomwidth/2.))
-    y=pelvis
+    y=pelvis-50
     for j in range(Width):
         for i in range(Height):
             fitimg[y+i][x+j]=bottomimg[i][j]

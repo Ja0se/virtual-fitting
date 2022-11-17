@@ -1,23 +1,40 @@
 const URL = "http://localhost:9999";
 
+function recom(){
+  $.ajax({
+    url: `${URL}/recommend`,
+    method: "POST",
+    success: async function (res) {
+      document.getElementById("recommend1").src=res.recommend1;
+      document.getElementById("recommend2").src=res.recommend2;
+      document.getElementById("recommend3").src=res.recommend3;
+      document.getElementById("recommend4").src=res.recommend4;
+      console.log(res);
+    },
+    error: function () {
+      alert("서버 연결 상태가 원할하지 않습니다.");
+    },
+  });
+}
+
 $(document).ready(function (event) {
   //test
   $('#rec').on('click', function(){
-    $.ajax({
-      url: `${URL}/recommend`,
-      method: "POST",
-      success: async function (res) {
-        document.getElementById("recommend1").src=res.recommend1;
-        document.getElementById("recommend2").src=res.recommend2;
-        document.getElementById("recommend3").src=res.recommend3;
-        document.getElementById("recommend4").src=res.recommend4;
-        console.log(res);
-      },
-      error: function () {
-        alert("서버 연결 상태가 원할하지 않습니다.");
-      },
-    });
-    
+    // $.ajax({
+    //   url: `${URL}/recommend`,
+    //   method: "POST",
+    //   success: async function (res) {
+    //     document.getElementById("recommend1").src=res.recommend1;
+    //     document.getElementById("recommend2").src=res.recommend2;
+    //     document.getElementById("recommend3").src=res.recommend3;
+    //     document.getElementById("recommend4").src=res.recommend4;
+    //     console.log(res);
+    //   },
+    //   error: function () {
+    //     alert("서버 연결 상태가 원할하지 않습니다.");
+    //   },
+    // });
+    recom();
   })
   ///////////
   $('#start').on('click', function(){
@@ -28,6 +45,7 @@ $(document).ready(function (event) {
         console.log('start');
         var imgsrc = "data:image/jpg;base64," + res;
         document.getElementById('fit').src = imgsrc;
+        recom();
       },
       error: function () {
         alert("서버 연결 상태가 원할하지 않습니다.");
@@ -97,6 +115,7 @@ $(document).ready(function (event) {
         console.log('success');
         var imgsrc = "data:image/jpg;base64," + res;
         document.getElementById('fit').src = imgsrc;
+        recom();
       },
       error: function () {
         alert("서버 연결 상태가 원할하지 않습니다.");
@@ -109,13 +128,14 @@ $(document).ready(function (event) {
       url: `${URL}/bottom`,
       method: "POST",
       data : { 
-        filename : '27.jpg',
+        filename : '29.jpg',
         bottom : document.getElementById('bottomimg').src
       },
       success: async function (res) {
         console.log('success');
         var imgsrc = "data:image/jpg;base64," + res;
         document.getElementById('fit').src = imgsrc;
+        recom();
       },
       error: function () {
         alert("서버 연결 상태가 원할하지 않습니다.");
@@ -135,6 +155,7 @@ $(document).ready(function (event) {
         console.log('success');
         var imgsrc = "data:image/jpg;base64," + res;
         document.getElementById('fit').src = imgsrc;
+        recom();
       },
       error: function () {
         alert("서버 연결 상태가 원할하지 않습니다.");

@@ -168,6 +168,12 @@ app.post("/clear",(req,res)=>{
 
 app.post("/dress",(req,res)=>{
   res.header("Access-Control-Allow-Origin", "*");
+  let Json={
+    "up":null,
+    "bottom":null
+  }
+  Json=JSON.stringify(Json);
+  fs.writeFile('recommend.txt', Json, (err) => err && console.error(err));
   let tmp4 = req.body.dress;
   tmp4=tmp4.toString();
   tmp4 = tmp4.replace(/^data:image\/[a-z]+;base64,/, "");
