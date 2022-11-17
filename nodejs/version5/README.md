@@ -1,8 +1,8 @@
 ### profile, up, bottom, dress, clear 기능 추가
 
-ㅇ db에 color랑 파일 이름 넣는거 추가
+ㅇ db hand.up, hand.down, hand.dress, hand.profile 네가지 스키마 정의
 
-ㅇ 추천 시스템 : test 누르면 추천 적용된 이미지가 뜹니다.
+ㅇ 추천 시스템 : test 누르면 추천 적용된 이미지가 뜹니다.  / 실제로는 피팅화면 접속시, 상의 또는 하의 선택시 해당 api가 제공되야한다.
 
 ㅇ profile : 누끼 제거 및 profile DB에 좌표 작성
 
@@ -14,9 +14,11 @@
 
 ㅇ submit : 이미지 등록시 filename을 주요키로 db작성 color 추출 db저장 / 누끼제거 이미지 response -> 휴대폰 로컬 저장하면 됨
 
-wear : 입고 있는 옷 last update -> 로컬에만 들고있으면 될듯하다.
+ㅇ wear : 입고 있는 옷 last update / DB에 last필요 없음 로컬에만 들고있으면 될듯하다.
 
 app.js -> nodejs
+
+database.js -> db 내용
 
 index.js -> script
 
